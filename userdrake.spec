@@ -7,7 +7,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
 Source0:	%{name}-%{version}.tar.bz2
@@ -49,7 +49,7 @@ icon="userdrake.png" \
 section="System/Configuration/Other" \
 title="User Administration" \
 longtitle="Add or remove users and groups" \
-command="/usr/sbin/userdrake" xdg="true"
+command="/usr/bin/userdrake" xdg="true"
 EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
@@ -57,12 +57,40 @@ cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-userdrake.desktop <<EOF
 [Desktop Entry]
 Name=User Administration
 Comment=Add or remove users and groups
-Exec=/usr/sbin/userdrake
+Exec=/usr/bin/userdrake
 Icon=userdrake
 Type=Application
 StartupNotify=true
 Categories=X-MandrivaLinux-System-Configuration-Other;Settings;
 EOF
+
+# consolehelper configuration
+ln -sf %{_bindir}/consolehelper %{buildroot}%{_bindir}/userdrake
+ln -sf %{_bindir}/userdrake %{buildroot}%{_bindir}/drakuser
+mkdir -p %{buildroot}%{_sysconfdir}/pam.d
+cat > %{buildroot}%{_sysconfdir}/pam.d/userdrake <<EOF
+#%PAM-1.0
+auth       sufficient   pam_rootok.so
+auth       required     pam_console.so
+auth       sufficient   pam_timestamp.so
+auth       include      system-auth
+account    required     pam_permit.so
+session    required     pam_permit.so
+session    optional     pam_xauth.so
+session    optional     pam_timestamp.so
+EOF
+mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps/
+cat > %{buildroot}%{_sysconfdir}/security/console.apps/userdrake <<EOF
+USER=root
+PROGRAM=/usr/sbin/userdrake
+FALLBACK=false
+SESSION=true
+EOF
+
+# userdrake <-> drakuser
+ln -s %{_sysconfdir}/pam.d/userdrake %{buildroot}%{_sysconfdir}/pam.d/drakuser
+ln -s %{_sysconfdir}/security/console.apps/userdrake \
+        %{buildroot}%{_sysconfdir}/security/console.apps/drakuser
 
 %post
 %{update_menus}
@@ -77,6 +105,11 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README COPYING RELEASE_NOTES
 %config(noreplace) %{_sysconfdir}/sysconfig/userdrake
+%config(noreplace) %{_sysconfdir}/pam.d/userdrake
+%config(noreplace) %{_sysconfdir}/security/console.apps/userdrake
+# two symlinks in sysconfdir
+%{_sysconfdir}/pam.d/drakuser
+%{_sysconfdir}/security/console.apps/drakuser
 %{_prefix}/bin/*
 %{_prefix}/sbin/*
 %{_datadir}/userdrake
@@ -88,5 +121,4 @@ rm -rf %{buildroot}
 %{_iconsdir}/*.png
 %{_miconsdir}/*.png
 %{_liconsdir}/*.png
-
 
