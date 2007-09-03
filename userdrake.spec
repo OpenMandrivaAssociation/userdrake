@@ -61,7 +61,7 @@ Exec=/usr/bin/userdrake
 Icon=userdrake
 Type=Application
 StartupNotify=true
-Categories=X-MandrivaLinux-System-Configuration-Other;Settings;
+Categories=GTK;System;X-MandrivaLinux-CrossDesktop;
 EOF
 
 # consolehelper configuration
