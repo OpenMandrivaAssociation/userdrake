@@ -7,7 +7,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
 Source0:	%{name}-%{version}.tar.bz2
@@ -15,6 +15,7 @@ URL:		http://people.mandriva.com/~daouda/mandrake/userdrake.html
 License:	GPL
 Group:		System/Configuration/Other
 Requires:	drakxtools >= 10.4.26-1mdk, libuser >= 0.51.7-5mdk
+Requires:	usermode-consoleonly >= 1.92-4mdv2008.0
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:  gettext perl-devel libuser-devel libglib2.0-devel pam-devel
 
@@ -68,17 +69,7 @@ EOF
 ln -sf %{_bindir}/consolehelper %{buildroot}%{_bindir}/userdrake
 ln -sf %{_bindir}/userdrake %{buildroot}%{_bindir}/drakuser
 mkdir -p %{buildroot}%{_sysconfdir}/pam.d
-cat > %{buildroot}%{_sysconfdir}/pam.d/userdrake <<EOF
-#%PAM-1.0
-auth       sufficient   pam_rootok.so
-auth       required     pam_console.so
-auth       sufficient   pam_timestamp.so
-auth       include      system-auth
-account    required     pam_permit.so
-session    required     pam_permit.so
-session    optional     pam_xauth.so
-session    optional     pam_timestamp.so
-EOF
+ln -sf %{_sysconfdir}/pam.d/mandriva-simple-auth %{buildroot}%{_sysconfdir}/pam.d/userdrake
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps/
 cat > %{buildroot}%{_sysconfdir}/security/console.apps/userdrake <<EOF
 USER=root
