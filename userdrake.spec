@@ -7,7 +7,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 2
+Release:	%mkrel 3
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
 Source0:	%{name}-%{version}.tar.bz2
@@ -63,6 +63,7 @@ Icon=userdrake
 Type=Application
 StartupNotify=true
 Categories=GTK;System;X-MandrivaLinux-CrossDesktop;
+NoDisplay=true
 EOF
 
 # consolehelper configuration
