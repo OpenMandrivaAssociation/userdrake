@@ -17,7 +17,6 @@ Group:		System/Configuration/Other
 Requires:	drakxtools >= 10.4.26-1mdk, libuser >= 0.51.7-5mdk
 Requires:	usermode-consoleonly >= 1.92-4mdv2008.0
 Requires:	transfugdrake
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:  gettext perl-devel libuser-devel libglib2.0-devel pam-devel
 
 %description
