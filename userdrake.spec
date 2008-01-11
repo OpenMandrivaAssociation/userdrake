@@ -43,16 +43,6 @@ cd ..
 #install lang
 %{find_lang} userdrake
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} << EOF
-?package(%{name}):\ 
-needs="x11" \
-icon="userdrake.png" \
-section="System/Configuration/Other" \
-title="User Administration" \
-longtitle="Add or remove users and groups" \
-command="/usr/bin/userdrake" xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-userdrake.desktop <<EOF
@@ -108,7 +98,6 @@ rm -rf %{buildroot}
 %{_datadir}/userdrake
 %{_mandir}/man3/USER*
 %{_datadir}/applications/mandriva-*.desktop
-%{_menudir}/%{name}
 %{perl_vendorarch}/USER.pm
 %{perl_vendorarch}/auto/USER
 %{_iconsdir}/*.png
