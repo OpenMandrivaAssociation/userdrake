@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%mkrel 1
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.lzma
 URL:		http://people.mandriva.com/~daouda/mandrake/userdrake.html
 License:	GPL
 Group:		System/Configuration/Other
