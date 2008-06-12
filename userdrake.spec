@@ -73,11 +73,15 @@ ln -s %{_sysconfdir}/pam.d/userdrake %{buildroot}%{_sysconfdir}/pam.d/drakuser
 ln -s %{_sysconfdir}/security/console.apps/userdrake \
         %{buildroot}%{_sysconfdir}/security/console.apps/drakuser
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean
 rm -rf %{buildroot}
