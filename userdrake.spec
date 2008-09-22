@@ -1,5 +1,5 @@
 
-%define version 1.7
+%define version 1.8
 %define name userdrake
 
 Summary:	A graphical interface for administering users and groups
