@@ -1,11 +1,11 @@
 
-%define version 1.8
+%define version 1.9
 %define name userdrake
 
 Summary:	A graphical interface for administering users and groups
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 3
+Release:	%mkrel 1
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
 Source0:	%{name}-%{version}.tar.lzma
