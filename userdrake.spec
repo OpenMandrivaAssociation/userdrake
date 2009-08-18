@@ -12,7 +12,7 @@ Source0:	%{name}-%{version}.tar.lzma
 URL:		http://people.mandriva.com/~daouda/mandrake/userdrake.html
 License:	GPL
 Group:		System/Configuration/Other
-Requires:	drakxtools >= 10.4.26-1mdk, libuser >= 0.51.7-5mdk
+Requires:	drakxtools >= 12.45, libuser >= 0.51.7-5mdk
 Requires:	usermode-consoleonly >= 1.92-4mdv2008.0
 Requires:	transfugdrake
 BuildRoot:	%{_tmppath}/%{name}-buildroot
