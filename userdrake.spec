@@ -5,7 +5,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 #cvs source
 # http://www.mandrivalinux.com/en/cvs.php3
 Source0:	%{name}-%{version}.tar.lzma
@@ -15,6 +15,7 @@ Group:		System/Configuration/Other
 Requires:	drakxtools >= 12.49, libuser >= 0.51.7-5mdk
 Requires:	usermode-consoleonly >= 1.92-4mdv2008.0
 Requires:	transfugdrake
+Suggests: xguest
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:  gettext perl-devel libuser-devel libglib2.0-devel pam-devel
 
