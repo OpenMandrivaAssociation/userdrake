@@ -29,6 +29,7 @@ groups. It depends on the libuser library.
 %build
 cd USER
 %{__perl} Makefile.PL INSTALLDIRS=vendor 
+cd ..
 make OPTIMIZE="$RPM_OPT_FLAGS -w" 
 
 %install
