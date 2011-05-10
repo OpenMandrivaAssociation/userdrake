@@ -17,7 +17,7 @@ Requires:	usermode-consoleonly >= 1.92-4mdv2008.0
 Requires:	transfugdrake
 Suggests: xguest
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:  gettext perl-devel libuser-devel libglib2.0-devel pam-devel
+BuildRequires:  gettext perl-devel libuser-devel glib2-devel pam-devel
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
