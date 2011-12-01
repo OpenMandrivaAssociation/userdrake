@@ -33,8 +33,8 @@ cd ..
 make OPTIMIZE="$RPM_OPT_FLAGS -w" 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make PREFIX=$RPM_BUILD_ROOT install 
+rm -rf %{buildroot}
+make PREFIX=%{buildroot} install 
 
 cd USER
 %makeinstall_std
@@ -44,8 +44,8 @@ cd ..
 %{find_lang} userdrake
 
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-userdrake.desktop <<EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-userdrake.desktop <<EOF
 [Desktop Entry]
 Name=User Administration
 Comment=Add or remove users and groups
