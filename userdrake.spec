@@ -20,19 +20,19 @@ BuildRequires:	pam-devel
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
-groups. It depends on the libuser library. 
+groups. It depends on the libuser library.
 
 %prep
 %setup -q
-		
+
 %build
 cd USER
-%{__perl} Makefile.PL INSTALLDIRS=vendor 
+%{__perl} Makefile.PL INSTALLDIRS=vendor
 cd ..
-make OPTIMIZE="%{optflags} -w" 
+make OPTIMIZE="%{optflags} -w"
 
 %install
-make PREFIX=%{buildroot} install 
+make PREFIX=%{buildroot} install
 
 cd USER
 %makeinstall_std
