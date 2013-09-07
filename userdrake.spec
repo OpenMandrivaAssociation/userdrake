@@ -1,12 +1,10 @@
 %define debug_package %{nil}
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
-Version:	1.13.2
-Release:	7
-#cvs source
-# http://www.mandrivalinux.com/en/cvs.php3
-Source0:	%{name}-%{version}.tar.lzma
-URL:		http://people.mandriva.com/~daouda/mandrake/userdrake.html
+Version:	1.14
+Release:	1
+Source0:	%{name}-%{version}.tar.xz
+URL:		https://abf.rosalinux.ru/omv_software/userdrake
 License:	GPL
 Group:		System/Configuration/Other
 Requires:	drakxtools
@@ -22,19 +20,19 @@ BuildRequires:	pam-devel
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
-groups. It depends on the libuser library. 
+groups. It depends on the libuser library.
 
 %prep
 %setup -q
-		
+
 %build
 cd USER
-%{__perl} Makefile.PL INSTALLDIRS=vendor 
+%{__perl} Makefile.PL INSTALLDIRS=vendor
 cd ..
-make OPTIMIZE="%{optflags} -w" 
+make OPTIMIZE="%{optflags} -w"
 
 %install
-make PREFIX=%{buildroot} install 
+make PREFIX=%{buildroot} install
 
 cd USER
 %makeinstall_std
