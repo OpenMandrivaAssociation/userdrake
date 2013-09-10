@@ -11,7 +11,7 @@ Requires:	drakxtools
 Requires:	libuser
 Requires:	usermode-consoleonly
 Requires:	transfugdrake
-Suggests:	xguest
+#Suggests:	xguest
 BuildRequires:	gettext
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(libuser)
