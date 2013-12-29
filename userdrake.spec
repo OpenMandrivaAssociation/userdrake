@@ -17,7 +17,7 @@ BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(libuser)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pam-devel
-Requires:	accountservice
+Requires:	accountsservice
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
