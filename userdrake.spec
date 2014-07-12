@@ -1,8 +1,9 @@
 %define debug_package %{nil}
+
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
-Version:	1.14
-Release:	7
+Version:	1.14.1
+Release:	1
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://abf.rosalinux.ru/omv_software/userdrake
 License:	GPL
@@ -18,6 +19,7 @@ BuildRequires:	pkgconfig(libuser)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pam-devel
 Requires:	accountsservice
+Requires:	perl(Net::DBus)
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
