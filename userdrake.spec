@@ -3,7 +3,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
 Version:	1.14.1
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://abf.rosalinux.ru/omv_software/userdrake
 License:	GPL
