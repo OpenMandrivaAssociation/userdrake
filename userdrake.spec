@@ -2,8 +2,8 @@
 
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
-Version:	1.14.1
-Release:	4
+Version:	1.14.2
+Release:	1
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://abf.io/omv_software/userdrake
 License:	GPL
@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pam-devel
 Requires:	accountsservice
 Requires:	perl(Net::DBus)
+Requires:	shadow >= 4.2.1-14
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
