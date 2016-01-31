@@ -5,7 +5,7 @@ Name:		userdrake
 Version:	2.0
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
-URL:		https://abf.rosalinux.ru/omv_software/userdrake
+URL:		https://abf.io/omv_software/userdrake
 License:	GPL
 Group:		System/Configuration/Other
 Requires:	drakxtools
@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pam-devel
 Requires:	accountsservice
 Requires:	perl(Net::DBus)
+Requires:	shadow >= 4.2.1-14
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
