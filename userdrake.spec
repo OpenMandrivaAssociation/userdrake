@@ -14,6 +14,7 @@ Requires:	polkit
 Requires:	transfugdrake
 #Suggests:	xguest
 BuildRequires:	gettext
+BuildRequires:	intltool
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(libuser)
 BuildRequires:	pkgconfig(glib-2.0)
