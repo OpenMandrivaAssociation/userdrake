@@ -2,7 +2,7 @@
 
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
-Version:	2.0
+Version:	2.1
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://abf.io/omv_software/userdrake
@@ -10,7 +10,7 @@ License:	GPL
 Group:		System/Configuration/Other
 Requires:	drakxtools
 Requires:	libuser
-Requires:	usermode-consoleonly
+Requires:	polkit
 Requires:	transfugdrake
 #Suggests:	xguest
 BuildRequires:	gettext
@@ -59,37 +59,16 @@ Categories=GTK;System;X-MandrivaLinux-CrossDesktop;
 NoDisplay=true
 EOF
 
-# consolehelper configuration
-ln -sf %{_bindir}/consolehelper %{buildroot}%{_bindir}/userdrake
-ln -sf %{_bindir}/userdrake %{buildroot}%{_bindir}/drakuser
-mkdir -p %{buildroot}%{_sysconfdir}/pam.d
-ln -sf %{_sysconfdir}/pam.d/mandriva-simple-auth %{buildroot}%{_sysconfdir}/pam.d/userdrake
-mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps/
-cat > %{buildroot}%{_sysconfdir}/security/console.apps/userdrake <<EOF
-USER=root
-PROGRAM=/usr/sbin/userdrake
-FALLBACK=false
-SESSION=true
-EOF
-
-# userdrake <-> drakuser
-ln -s %{_sysconfdir}/pam.d/userdrake %{buildroot}%{_sysconfdir}/pam.d/drakuser
-ln -s %{_sysconfdir}/security/console.apps/userdrake \
-        %{buildroot}%{_sysconfdir}/security/console.apps/drakuser
-
 %files -f userdrake.lang
 %doc README COPYING RELEASE_NOTES
 %config(noreplace) %{_sysconfdir}/sysconfig/userdrake
-%config(noreplace) %{_sysconfdir}/pam.d/userdrake
-%config(noreplace) %{_sysconfdir}/security/console.apps/userdrake
 # two symlinks in sysconfdir
-%{_sysconfdir}/pam.d/drakuser
-%{_sysconfdir}/security/console.apps/drakuser
 %{_prefix}/bin/*
-%{_prefix}/sbin/*
+%{_libexecdir}/drakuser
 %{_datadir}/userdrake
 %{_mandir}/man3/USER*
 %{_datadir}/applications/mandriva-*.desktop
+%{_datadir}/polkit-1/actions/*
 %{perl_vendorarch}/USER.pm
 %{perl_vendorarch}/auto/USER
 %{_iconsdir}/*.png

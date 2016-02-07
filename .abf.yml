@@ -1,4 +1,5 @@
 removed_sources:
   userdrake-1.14.2.tar.xz: d5d452ad983d31c2ab4777013389767fc7685897
-sources:
   userdrake-2.0.tar.xz: 9418b28d2639335348eb986f2a030ecb3254c9f4
+sources:
+  userdrake-2.1.tar.xz: 6c022e7b36cdf393b2af0af779d5ec3a52525d68
