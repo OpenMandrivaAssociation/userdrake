@@ -2,13 +2,13 @@
 
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
-Version:	2.1
+Version:	2.2
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://abf.io/omv_software/userdrake
 License:	GPL
 Group:		System/Configuration/Other
-Requires:	drakxtools
+Requires:	drakxtools >= 16.65
 Requires:	libuser
 Requires:	polkit
 Requires:	transfugdrake
