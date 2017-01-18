@@ -3,7 +3,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
 Version:	2.3
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://github.com/OpenMandrivaSoftware/userdrake
 License:	GPL
@@ -22,6 +22,7 @@ BuildRequires:	pam-devel
 Requires:	accountsservice
 Requires:	perl(Net::DBus)
 Requires:	shadow >= 4.2.1-14
+Requires:	pam_pwquality
 
 %description
 Userdrake is a user-friendly and powerful tool for administrating users and 
