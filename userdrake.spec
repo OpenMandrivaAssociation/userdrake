@@ -3,7 +3,7 @@
 Summary:	A graphical interface for administering users and groups
 Name:		userdrake
 Version:	2.3
-Release:	2
+Release:	3
 Source0:	%{name}-%{version}.tar.xz
 URL:		https://github.com/OpenMandrivaSoftware/userdrake
 License:	GPL
