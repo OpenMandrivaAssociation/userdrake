@@ -13,6 +13,7 @@ Requires:	libuser
 Requires:	polkit
 Requires:	transfugdrake
 #Suggests:	xguest
+BuildRequires:	make
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	perl-devel
